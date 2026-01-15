@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA Track | MLSys 2026 FlashInfer AI Kernel Generation Contest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">MLSys 2026 - NVIDIA Track</a>
+            <ul class="nav-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#tracks">Tracks</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#prizes">Prizes</a></li>
+                <li><a href="#register" class="nav-cta">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">MLSys 2026 Competition - NVIDIA Track</div>
+            <h1>FlashInfer AI Kernel Generation Contest</h1>
+            <p class="hero-subtitle">Build AI agents that generate high-performance GPU kernels for state-of-the-art LLM architectures on NVIDIA Blackwell GPUs</p>
+            <div class="hero-meta">
+                <span>May 17-22, 2026</span>
+                <span class="separator">|</span>
+                <span>Bellevue, WA</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc68pDEivL02zfquXBBNzZDrTqu38zTOIt8EEorZCu1cBKJQg/viewform?usp=dialog" class="btn btn-primary" target="_blank">Register Now</a>
+                <a href="#overview" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-logos">
+                <span class="hero-logos-label">Organized by</span>
+                <div class="hero-logos-row">
+                    <a href="https://www.nvidia.com" target="_blank" class="logo-link">
+                        <img src="images/nvidia-logo.svg" alt="NVIDIA" class="partner-logo nvidia-logo">
+                    </a>
+                    <a href="https://mlsys.org/Conferences/2026" target="_blank" class="logo-link">
+                        <img src="images/mlsys-logo.svg" alt="MLSys" class="partner-logo">
+                    </a>
+                    <a href="https://github.com/flashinfer-ai/flashinfer" target="_blank" class="logo-link">
+                        <img src="images/flashinfer-logo.png" alt="FlashInfer" class="partner-logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Contest Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon">&#x1F3AF;</div>
+                    <h3>The Challenge</h3>
+                    <p>Create AI agents that automatically generate optimized CUDA kernels for cutting-edge LLM operations. Your agent will receive kernel specifications and must produce high-performance code for NVIDIA Blackwell B200 GPUs.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">&#x1F4CA;</div>
+                    <h3>Benchmark</h3>
+                    <p>Compete across workloads derived from production models. Kernels are evaluated on correctness, speed, and win rate against FlashInfer baselines.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">&#x1F527;</div>
+                    <h3>Platform</h3>
+                    <p>Submit and evaluate your kernels on FlashInfer-Bench (<a href="https://bench.flashinfer.ai" target="_blank">bench.flashinfer.ai</a>). Registered teams receive compute credits for B200 access.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">&#x1F916;</div>
+                    <h3>Two Approaches</h3>
+                    <p>We welcome both expert-crafted seed kernels with agent-assisted evolution, and fully agent-generated solutions. The two approaches will be evaluated separately. Agent solutions must open-source scripts to reproduce kernels. No API credits provided.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tracks" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Competition Tracks</h2>
+            <p class="section-subtitle">Three kernel categories targeting the most important operations in modern LLMs</p>
+
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-header">
+                        <span class="track-label">Track A</span>
+                    </div>
+                    <h3>MoE GEMM</h3>
+                    <p>Grouped GEMM kernels for Mixture-of-Experts models with low-precision and mixed-precision support.</p>
+                    <div class="track-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Kernels</span>
+                            <code>moe_gemm_grouped</code>, <code>moe_gemm_fused</code>, <code>moe_scatter_gather</code>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Precision</span>
+                            FP16, BF16, FP8 (E4M3/E5M2)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-header">
+                        <span class="track-label">Track B</span>
+                    </div>
+                    <h3>Sparse Attention</h3>
+                    <p>Block-sparse attention kernels for efficient long-context processing with variable sparsity patterns.</p>
+                    <div class="track-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Kernels</span>
+                            <code>deepseek_sparse_prefill</code>, <code>deepseek_sparse_decode</code>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Features</span>
+                            Variable block sizes, custom masks, paged KV
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-header">
+                        <span class="track-label">Track C</span>
+                    </div>
+                    <h3>Gated Delta Net</h3>
+                    <p>Linear attention kernels with gating mechanisms for efficient sequence modeling.</p>
+                    <div class="track-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Kernels</span>
+                            <code>gated_delta_net_fwd</code>, <code>gated_delta_net_recurrent</code>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Features</span>
+                            Linear complexity, state-space formulation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="getting-started" class="section">
+        <div class="container">
+            <h2 class="section-title">Getting Started</h2>
+            <p class="section-subtitle">Everything you need to start competing</p>
+            <div class="coming-soon-box">
+                <div class="coming-soon-icon">&#x1F6A7;</div>
+                <h3>Coming Soon</h3>
+                <p>Starter kit, evaluation details, and submission guidelines will be available after the public launch on January 19, 2026.</p>
+                <a href="getting-started.html" class="btn btn-secondary">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="section">
+        <div class="container">
+            <h2 class="section-title">Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 19, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Public Launch</h3>
+                        <ul>
+                            <li>Registration opens</li>
+                            <li>Starter kit released</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 9, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Baselines Released</h3>
+                        <ul>
+                            <li>OpenEvolve-based baselines available</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item important">
+                    <div class="timeline-date">Feb 15, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Registration Deadline</h3>
+                        <ul>
+                            <li>Last day to register your team</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item important">
+                    <div class="timeline-date">Apr 24, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Kernel Submission Deadline</h3>
+                        <ul>
+                            <li>11:59 PM AoE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item important">
+                    <div class="timeline-date">May 1, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Writeup Deadline</h3>
+                        <ul>
+                            <li>Technical report due (max 4 pages)</li>
+                            <li>11:59 PM AoE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 11, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Winners Notified</h3>
+                        <ul>
+                            <li>Results announced via email</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item highlight">
+                    <div class="timeline-date">May 17-22, 2026</div>
+                    <div class="timeline-content">
+                        <h3>MLSys 2026 Award Ceremony</h3>
+                        <ul>
+                            <li>Bellevue, WA</li>
+                            <li>Winners present their solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prizes" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Prizes & Resources</h2>
+
+            <div class="prizes-grid">
+                <div class="prize-card">
+                    <div class="prize-icon">&#x1F3C6;</div>
+                    <h3>Cash Prizes</h3>
+                    <p>Gold, silver, and bronze awards for top performing teams. Details coming soon.</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon">&#x1F3AB;</div>
+                    <h3>Free Registration</h3>
+                    <p>Winners receive complimentary MLSys 2026 conference registration.</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon">&#x1F4BB;</div>
+                    <h3>Compute Credits</h3>
+                    <p>Registered teams receive compute credits for NVIDIA B200 GPU access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="section cta-section">
+        <div class="container">
+            <h2>Ready to Compete?</h2>
+            <p>Join teams from around the world in pushing the boundaries of AI kernel generation.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc68pDEivL02zfquXBBNzZDrTqu38zTOIt8EEorZCu1cBKJQg/viewform?usp=dialog" class="btn btn-primary btn-large" target="_blank">Register Your Team</a>
+            <p class="cta-note">Registration deadline: February 15, 2026</p>
+        </div>
+    </section>
+
+    <section class="section resources-section">
+        <div class="container">
+            <h2 class="section-title">Resources</h2>
+            <div class="resources-grid">
+                <a href="https://github.com/flashinfer-ai/flashinfer" class="resource-link" target="_blank">
+                    <span class="resource-icon">&#x1F4E6;</span>
+                    <span>FlashInfer GitHub</span>
+                </a>
+                <a href="https://bench.flashinfer.ai" class="resource-link" target="_blank">
+                    <span class="resource-icon">&#x1F4CA;</span>
+                    <span>FlashInfer-Bench</span>
+                </a>
+                <a href="https://mlsys.org/Conferences/2026" class="resource-link" target="_blank">
+                    <span class="resource-icon">&#x1F3DB;</span>
+                    <span>MLSys 2026</span>
+                </a>
+                <a href="https://arxiv.org/abs/2401.06066" class="resource-link" target="_blank">
+                    <span class="resource-icon">&#x1F4DD;</span>
+                    <span>DeepSeek V3 Paper</span>
+                </a>
+                <a href="https://arxiv.org/abs/2412.06464" class="resource-link" target="_blank">
+                    <span class="resource-icon">&#x1F4DD;</span>
+                    <span>Gated Delta Net Paper</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>MLSys 2026 Competition - NVIDIA Track</p>
+                    <p>FlashInfer AI Kernel Generation Contest</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Questions? Contact us at</p>
+                    <a href="mailto:mlsys26-contest-contact@nvidia.com">mlsys26-contest-contact@nvidia.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
