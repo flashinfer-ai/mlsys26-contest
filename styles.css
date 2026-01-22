@@ -378,6 +378,11 @@ code {
     margin-bottom: 1rem;
 }
 
+.overview-logo {
+    height: 2.5rem;
+    width: auto;
+}
+
 .overview-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
