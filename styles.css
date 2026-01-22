@@ -240,7 +240,7 @@ code {
 .partner-logo {
     height: 40px;
     width: auto;
-    filter: brightness(0) invert(1);
+    filter: grayscale(1) invert(1);
 }
 
 .partner-logo.nvidia-logo {
