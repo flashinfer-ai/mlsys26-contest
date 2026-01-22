@@ -944,6 +944,17 @@ code {
     margin-bottom: 1rem;
 }
 
+.content-card .btn-secondary {
+    background: var(--gray-900);
+    color: var(--white);
+    border: 2px solid var(--gray-900);
+}
+
+.content-card .btn-secondary:hover {
+    background: var(--gray-700);
+    border-color: var(--gray-700);
+}
+
 .badge {
     display: inline-block;
     background: var(--gray-200);
