@@ -92,6 +92,7 @@
                     </div>
                     <h3>Fused MoE</h3>
                     <p>Fused Mixture-of-Experts kernels with FP8 support.</p>
+                    <a href="https://bench.flashinfer.ai/kernels/moe_fp8_block_scale_ds_routing_topk8_ng8_kg4_e32_h7168_i2048" target="_blank" class="btn btn-secondary">FP8 MoE</a>
                 </div>
 
                 <div class="track-card">
@@ -100,6 +101,10 @@
                     </div>
                     <h3>Sparse Attention</h3>
                     <p>Deepseek Sparse Attention from <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2" target="_blank">Deepseek V3.2</a></p>
+                    <div class="track-links">
+                        <a href="https://bench.flashinfer.ai/kernels/gdn_decode_qk16_v32_d128_k_last?p=0.95" target="_blank" class="btn btn-secondary">GDN Decode</a>
+                        <a href="https://bench.flashinfer.ai/kernels/gdn_prefill_qk16_v32_d128_k_last" target="_blank" class="btn btn-secondary">GDN Prefill</a>
+                    </div>
                 </div>
 
                 <div class="track-card">
@@ -108,6 +113,10 @@
                     </div>
                     <h3>Gated Delta Net</h3>
                     <p>Gated Delta Net used in <a href="https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct" target="_blank">Qwen3-Next</a></p>
+                    <div class="track-links">
+                        <a href="https://bench.flashinfer.ai/kernels/dsa_topk_indexer_fp8_h64_d128_topk256_ps64" target="_blank" class="btn btn-secondary">Indexer</a>
+                        <a href="https://bench.flashinfer.ai/kernels/dsa_sparse_decode_h16_ckv512_kpe64_topk256_ps64" target="_blank" class="btn btn-secondary">Sparse Decode</a>
+                    </div>
                 </div>
             </div>
         </div>
