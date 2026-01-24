@@ -830,6 +830,13 @@ code {
     color: var(--primary-dark);
 }
 
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .cta-note {
     margin-top: 1.5rem;
     font-size: 0.875rem;
