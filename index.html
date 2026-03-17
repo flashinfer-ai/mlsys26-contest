@@ -27,18 +27,14 @@
         <div class="hero-content">
             <div class="hero-badge">MLSys 2026 Competition - NVIDIA Track</div>
             <h1>FlashInfer AI Kernel Generation Contest</h1>
-            <p class="hero-subtitle">Build AI agents that generate high-performance GPU kernels for state-of-the-art LLM architectures on NVIDIA Blackwell GPUs</p>
-            <div class="hero-meta">
-                <span>May 17-22, 2026</span>
-                <span class="separator">|</span>
-                <span>Bellevue, WA</span>
-            </div>
+            <p class="hero-subtitle">Create high-performance GPU kernels for state-of-the-art LLM architectures on NVIDIA Blackwell GPUs with humans and/or AI agents</p>
             <div class="hero-buttons">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc68pDEivL02zfquXBBNzZDrTqu38zTOIt8EEorZCu1cBKJQg/viewform?usp=dialog" class="btn btn-primary" target="_blank">Register Now</a>
                 <a href="#overview" class="btn btn-secondary">Learn More</a>
+                <a href="https://discord.gg/XEH5wGKXZA" class="btn btn-secondary" target="_blank">Join Discord</a>
             </div>
             <div class="hero-logos">
-                <span class="hero-logos-label">Organized by</span>
+                <span class="hero-logos-label">Organizer and Sponsors</span>
                 <div class="hero-logos-row">
                     <a href="https://www.nvidia.com" target="_blank" class="logo-link">
                         <img src="images/nvidia-logo.svg" alt="NVIDIA" class="partner-logo nvidia-logo">
@@ -47,7 +43,10 @@
                         <img src="images/mlsys-logo.svg" alt="MLSys" class="partner-logo">
                     </a>
                     <a href="https://github.com/flashinfer-ai/flashinfer" target="_blank" class="logo-link">
-                        <img src="images/flashinfer-logo.png" alt="FlashInfer" class="partner-logo">
+                        <img src="images/FlashInfer-white-background.png" alt="FlashInfer" class="partner-logo">
+                    </a>
+                    <a href="https://modal.com" target="_blank" class="logo-link">
+                        <img src="images/Modal-PrimaryLogo-Dark-Greyscale.png" alt="Modal" class="partner-logo">
                     </a>
                 </div>
             </div>
@@ -61,7 +60,7 @@
                 <div class="overview-card">
                     <div class="overview-icon">&#x1F3AF;</div>
                     <h3>The Challenge</h3>
-                    <p>Create AI agents that automatically generate optimized CUDA kernels for cutting-edge LLM operations. Your agent will receive kernel specifications and must produce high-performance code for NVIDIA Blackwell B200 GPUs.</p>
+                    <p>Create optimized CUDA kernels for cutting-edge LLM operations, either by hand or with AI agents. Receive kernel specifications and produce high-performance code for NVIDIA Blackwell B200 GPUs.</p>
                 </div>
                 <div class="overview-card">
                     <div class="overview-icon">&#x1F4CA;</div>
@@ -69,9 +68,9 @@
                     <p>Compete across workloads derived from production models. Kernels are evaluated on correctness, speed, and win rate against FlashInfer baselines.</p>
                 </div>
                 <div class="overview-card">
-                    <div class="overview-icon">&#x1F527;</div>
+                    <div class="overview-icon"><img src="images/fib-logo.png" alt="FlashInfer-Bench" class="overview-logo"></div>
                     <h3>Platform</h3>
-                    <p>Submit and evaluate your kernels on FlashInfer-Bench (<a href="https://bench.flashinfer.ai" target="_blank">bench.flashinfer.ai</a>). Registered teams receive compute credits for B200 access.</p>
+                    <p>Submit and evaluate your kernels on FlashInfer-Bench (<a href="https://bench.flashinfer.ai" target="_blank">bench.flashinfer.ai</a>).</p>
                 </div>
                 <div class="overview-card">
                     <div class="overview-icon">&#x1F916;</div>
@@ -92,18 +91,9 @@
                     <div class="track-header">
                         <span class="track-label">Track A</span>
                     </div>
-                    <h3>MoE GEMM</h3>
-                    <p>Grouped GEMM kernels for Mixture-of-Experts models with low-precision and mixed-precision support.</p>
-                    <div class="track-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Kernels</span>
-                            <code>moe_gemm_grouped</code>, <code>moe_gemm_fused</code>, <code>moe_scatter_gather</code>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Precision</span>
-                            FP16, BF16, FP8 (E4M3/E5M2)
-                        </div>
-                    </div>
+                    <h3>Fused MoE</h3>
+                    <p>Fused Mixture-of-Experts kernels with FP8 support.</p>
+                    <a href="https://bench.flashinfer.ai/kernels/moe_fp8_block_scale_ds_routing_topk8_ng8_kg4_e32_h7168_i2048" target="_blank" class="btn btn-secondary">FP8 MoE</a>
                 </div>
 
                 <div class="track-card">
@@ -111,16 +101,10 @@
                         <span class="track-label">Track B</span>
                     </div>
                     <h3>Sparse Attention</h3>
-                    <p>Block-sparse attention kernels for efficient long-context processing with variable sparsity patterns.</p>
-                    <div class="track-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Kernels</span>
-                            <code>deepseek_sparse_prefill</code>, <code>deepseek_sparse_decode</code>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Features</span>
-                            Variable block sizes, custom masks, paged KV
-                        </div>
+                    <p>Deepseek Sparse Attention from <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2" target="_blank">Deepseek V3.2</a></p>
+                    <div class="track-links">
+                        <a href="https://bench.flashinfer.ai/kernels/dsa_topk_indexer_fp8_h64_d128_topk2048_ps64" target="_blank" class="btn btn-secondary">Indexer</a>
+                        <a href="https://bench.flashinfer.ai/kernels/dsa_sparse_attention_h16_ckv512_kpe64_topk2048_ps64" target="_blank" class="btn btn-secondary">Attention</a>
                     </div>
                 </div>
 
@@ -129,16 +113,10 @@
                         <span class="track-label">Track C</span>
                     </div>
                     <h3>Gated Delta Net</h3>
-                    <p>Linear attention kernels with gating mechanisms for efficient sequence modeling.</p>
-                    <div class="track-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Kernels</span>
-                            <code>gated_delta_net_fwd</code>, <code>gated_delta_net_recurrent</code>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Features</span>
-                            Linear complexity, state-space formulation
-                        </div>
+                    <p>Gated Delta Net used in <a href="https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct" target="_blank">Qwen3-Next</a></p>
+                    <div class="track-links">
+                        <a href="https://bench.flashinfer.ai/kernels/gdn_decode_qk4_v8_d128_k_last" target="_blank" class="btn btn-secondary">GDN Decode</a>
+                        <a href="https://bench.flashinfer.ai/kernels/gdn_prefill_qk4_v8_d128_k_last" target="_blank" class="btn btn-secondary">GDN Prefill</a>
                     </div>
                 </div>
             </div>
@@ -149,11 +127,32 @@
         <div class="container">
             <h2 class="section-title">Getting Started</h2>
             <p class="section-subtitle">Everything you need to start competing</p>
-            <div class="coming-soon-box">
-                <div class="coming-soon-icon">&#x1F6A7;</div>
-                <h3>Coming Soon</h3>
-                <p>Starter kit, evaluation details, and submission guidelines will be available after the public launch on January 19, 2026.</p>
-                <a href="getting-started.html" class="btn btn-secondary">View Details</a>
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">&#x1F4E6;</div>
+                    <h3>Starter Kit</h3>
+                    <p>Development environment setup and test/benchmark scripts.</p>
+                    <a href="https://github.com/flashinfer-ai/flashinfer-bench-starter-kit" target="_blank" class="btn btn-secondary">View Starter Kit</a>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">&#x1F4CB;</div>
+                    <h3>Submission Format</h3>
+                    <p>Use any language (CuTe DSL, CUDA, Tilelang, Triton, cuTile, etc.). Host your code in a GitHub repo following our starter kit format, then share the repo URL with organizers (private repos welcome, just add organizer access).</p>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">&#x1F3AF;</div>
+                    <h3>Evaluation</h3>
+                    <p>Biweekly evaluations plus final evaluation. Tag your commits on GitHub to participate. Note: Modal scores are for reference only (clock frequency cannot be locked). Official evaluations run on bare metal machines.</p>
+                </div>
+
+                <div class="content-card coming-soon-card">
+                    <div class="card-icon">&#x1F4D6;</div>
+                    <h3>Baselines</h3>
+                    <p>FlashInfer production kernels and OpenEvolve-based references.</p>
+                    <span class="badge">Coming Soon</span>
+                </div>
             </div>
         </div>
     </section>
@@ -163,7 +162,7 @@
             <h2 class="section-title">Timeline</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">Jan 19, 2026</div>
+                    <div class="timeline-date">Jan 22, 2026</div>
                     <div class="timeline-content">
                         <h3>Public Launch</h3>
                         <ul>
@@ -239,8 +238,8 @@
             <div class="prizes-grid">
                 <div class="prize-card">
                     <div class="prize-icon">&#x1F3C6;</div>
-                    <h3>Cash Prizes</h3>
-                    <p>Gold, silver, and bronze awards for top performing teams. Details coming soon.</p>
+                    <h3>GPU Prizes</h3>
+                    <p>GPU cards for top performing teams. Details coming soon.</p>
                 </div>
                 <div class="prize-card">
                     <div class="prize-icon">&#x1F3AB;</div>
@@ -249,8 +248,8 @@
                 </div>
                 <div class="prize-card">
                     <div class="prize-icon">&#x1F4BB;</div>
-                    <h3>Compute Credits</h3>
-                    <p>Registered teams receive compute credits for NVIDIA B200 GPU access.</p>
+                    <h3>GPU Access</h3>
+                    <p>Registered teams receive <a href="https://modal.com" target="_blank">Modal</a> compute credits for NVIDIA B200 GPU development.</p>
                 </div>
             </div>
         </div>
@@ -260,8 +259,11 @@
         <div class="container">
             <h2>Ready to Compete?</h2>
             <p>Join teams from around the world in pushing the boundaries of AI kernel generation.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc68pDEivL02zfquXBBNzZDrTqu38zTOIt8EEorZCu1cBKJQg/viewform?usp=dialog" class="btn btn-primary btn-large" target="_blank">Register Your Team</a>
-            <p class="cta-note">Registration deadline: February 15, 2026</p>
+            <div class="cta-buttons">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc68pDEivL02zfquXBBNzZDrTqu38zTOIt8EEorZCu1cBKJQg/viewform?usp=dialog" class="btn btn-primary btn-large" target="_blank">Register Your Team</a>
+                <a href="https://discord.gg/XEH5wGKXZA" class="btn btn-secondary btn-large" target="_blank">Join Discord</a>
+            </div>
+            <p class="cta-note">Teams of up to 5 members | Registration deadline: February 15, 2026</p>
         </div>
     </section>
 
@@ -288,6 +290,10 @@
                 <a href="https://arxiv.org/abs/2412.06464" class="resource-link" target="_blank">
                     <span class="resource-icon">&#x1F4DD;</span>
                     <span>Gated Delta Net Paper</span>
+                </a>
+                <a href="https://discord.gg/XEH5wGKXZA" class="resource-link" target="_blank">
+                    <span class="resource-icon">&#x1F4AC;</span>
+                    <span>GPU Mode Discord #flashinfer</span>
                 </a>
             </div>
         </div>

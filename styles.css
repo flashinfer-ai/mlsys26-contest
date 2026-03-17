@@ -240,7 +240,7 @@ code {
 .partner-logo {
     height: 40px;
     width: auto;
-    filter: brightness(0) invert(1);
+    filter: grayscale(1) invert(1);
 }
 
 .partner-logo.nvidia-logo {
@@ -378,6 +378,11 @@ code {
     margin-bottom: 1rem;
 }
 
+.overview-logo {
+    height: 2.5rem;
+    width: auto;
+}
+
 .overview-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
@@ -441,6 +446,25 @@ code {
     color: var(--gray-600);
     font-size: 0.9375rem;
     margin-bottom: 1.25rem;
+}
+
+.track-card .btn-secondary {
+    background: var(--gray-900);
+    color: var(--white);
+    border: 2px solid var(--gray-900);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.track-card .btn-secondary:hover {
+    background: var(--gray-700);
+    border-color: var(--gray-700);
+}
+
+.track-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .track-details {
@@ -806,6 +830,13 @@ code {
     color: var(--primary-dark);
 }
 
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .cta-note {
     margin-top: 1.5rem;
     font-size: 0.875rem;
@@ -937,6 +968,17 @@ code {
     color: var(--gray-600);
     font-size: 0.9375rem;
     margin-bottom: 1rem;
+}
+
+.content-card .btn-secondary {
+    background: var(--gray-900);
+    color: var(--white);
+    border: 2px solid var(--gray-900);
+}
+
+.content-card .btn-secondary:hover {
+    background: var(--gray-700);
+    border-color: var(--gray-700);
 }
 
 .badge {
