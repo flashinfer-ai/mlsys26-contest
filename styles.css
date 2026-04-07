@@ -244,7 +244,8 @@ code {
 }
 
 .partner-logo.nvidia-logo {
-    height: 32px;
+    height: 70px;
+    filter: none;
 }
 
 /* Buttons */
