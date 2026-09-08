@@ -928,7 +928,7 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.25rem;
     text-decoration: none;
     color: var(--gray-900);
     transition: transform 0.2s;
@@ -949,11 +949,18 @@ code {
     object-fit: cover;
     border: 3px solid var(--white);
     box-shadow: var(--shadow);
+    margin-bottom: 0.5rem;
 }
 
 .organizer-name {
     font-size: 0.9375rem;
     font-weight: 600;
+    text-align: center;
+}
+
+.organizer-affiliation {
+    font-size: 0.8125rem;
+    color: var(--gray-600);
     text-align: center;
 }
 
